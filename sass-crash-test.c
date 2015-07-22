@@ -1,15 +1,14 @@
 #include <sass.h>
 #include <sass_context.h>
+#include <string.h>
 
 int
 main()
 {
+  char data[40];
+  strncpy(data, "/* First */", 40);
   struct Sass_Data_Context *dc;
-  struct Sass_Context *c;
-  struct Sass_Options *o;
-  dc = sass_make_data_context("/* First */");
-  c = sass_data_context_get_context(dc);
-  sass_option_set_output_path(o, "file.css");
+  dc = sass_make_data_context(data);
   return sass_compile_data_context(dc);
 }
 
