@@ -4,12 +4,12 @@
 int
 main()
 {
-  struct Sass_Data_Context *dc;
+  struct Sass_File_Context *dc;
   struct Sass_Context *c;
   struct Sass_Options *o;
-  dc = sass_make_data_context("/* First */");
-  c = sass_data_context_get_context(dc);
+  dc = sass_make_file_context("file.scss");
+  c = sass_file_context_get_context(dc);
   sass_option_set_output_path(o, "file.css");
-  return sass_compile_data_context(dc);
+  return sass_compile_file_context(dc);
 }
 
