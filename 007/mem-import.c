@@ -44,6 +44,7 @@ main()
   sass_option_set_c_importers(o, c_importers);
 
   rc = sass_compile_data_context(dc);
+  fprintf(stdout, "%s", sass_context_get_output_string(c));
   sass_delete_data_context(dc);
   return rc;
 }
