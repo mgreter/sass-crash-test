@@ -16,7 +16,7 @@ local_import(const char *cur_path,
   Sass_Import_List sl;
   fprintf(stderr, "Importing:%s\n", cur_path); 
   sl = sass_make_import_list(1);
-  sl[0] = sass_make_import_entry(cur_path, strdup("/* import */"), strdup(""));
+  sl[0] = sass_make_import_entry("static", strdup("/* import */"), strdup(""));
   return sl;
 }
 
