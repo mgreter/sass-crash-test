@@ -1,0 +1,3 @@
+PROG=mem-import
+.include "../libsass.mk"
+.include <bsd.prog.mk>
