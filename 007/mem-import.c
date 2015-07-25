@@ -23,16 +23,21 @@ local_import(const char *cur_path,
 int
 main()
 {
-  char data[60];
+  char data[120];
   struct Sass_Data_Context *dc;
   struct Sass_Context *c;
   struct Sass_Options *o;
   char *data0;
+  const char *out;
   int rc;
 
   Sass_Importer_List c_importers;
 
-  strncpy(data, "@import \"lala\"; /* First */ a { color: red; }", sizeof(data));
+  strncpy(data,
+      "@import \"lala\";\n"
+      "@import \"delta\";\n"
+      "/* First */ a { color: red; }",
+    sizeof(data));
   data0 = strdup(data);
   dc = sass_make_data_context(data0);
   c = sass_data_context_get_context(dc);
@@ -43,8 +48,17 @@ main()
   c_importers[0] = sass_make_importer(local_import, 0, NULL);
   sass_option_set_c_importers(o, c_importers);
 
-  rc = sass_compile_data_context(dc);
-  fprintf(stdout, "%s", sass_context_get_output_string(c));
+  if ((rc = sass_compile_data_context(dc)) == 0) {
+    out = sass_context_get_output_string(c);
+    if (out) {
+      fprintf(stdout, "%s", out);
+    }
+  } else {
+    out = sass_context_get_error_message(c);
+    if (out) {
+      fprintf(stderr, "error(%d): %s", rc, out);
+    }
+  }
   sass_delete_data_context(dc);
   return rc;
 }
