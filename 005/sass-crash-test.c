@@ -19,7 +19,7 @@ main()
   dc = sass_make_data_context(data0);
   c = sass_data_context_get_context(dc);
   o = sass_context_get_options(c);
-  sass_option_set_output_path(o, strdup("file.css"));
+  sass_option_set_output_path(o, "file.css");
   rc = sass_compile_data_context(dc);
   sass_delete_data_context(dc);
   return rc;
