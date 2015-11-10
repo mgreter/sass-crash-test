@@ -1,4 +1,5 @@
-PROG=sass-crash-test
+PROG_CXX=sass-stack-data-context
+SRCS=sass-stack-data-context.c
 WARNS=9
 .include "../libsass.mk"
 .include <bsd.prog.mk>

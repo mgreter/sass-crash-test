@@ -1,0 +1,20 @@
+.Dd July 21, 2015
+.Dt sass-const-option 1
+.Os
+.Sh NAME
+.Nm sass-const-option
+.Nd Provide libsass option as a constant string
+.Sh SYNOPSIS
+.Nm
+.Sh DESCRIPTION
+This utility tests how C++ Sass library
+works with user-supplied data.
+.Pp
+This sample program provides a constant
+string as an argument to
+.Fn sass_option_set_output_path
+without using
+.Xr strdup 3
+.
+.Sh AUTHOR
+Marcin Cieslak <saper@saper.info>

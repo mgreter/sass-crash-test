@@ -1,3 +1,4 @@
-PROG=sass-crash-test
+PROG_CXX=sass-const-option
+SRCS=sass-const-option.c
 .include "../libsass.mk"
 .include <bsd.prog.mk>

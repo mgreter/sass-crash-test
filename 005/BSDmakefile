@@ -1,4 +1,4 @@
-PROG=sass-crash-test
-WARNS=9
+PROG_CXX=mem-import
+SRCS=mem-import.c
 .include "../libsass.mk"
 .include <bsd.prog.mk>

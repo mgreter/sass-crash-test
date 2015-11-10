@@ -1,3 +1,5 @@
-PROG=sass-crash-test
+PROG_CXX=mem-leaks
+SRCS=mem-leaks.c
+WARNS=9
 .include "../libsass.mk"
 .include <bsd.prog.mk>

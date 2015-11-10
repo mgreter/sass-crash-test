@@ -1,7 +1,7 @@
 #include <string.h>
 
 #include <sass.h>
-#include <sass_context.h>
+#include <sass/context.h>
 
 int
 main()

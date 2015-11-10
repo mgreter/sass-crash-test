@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #include <sass.h>
-#include <sass_context.h>
+#include <sass/context.h>
 
 static Sass_Import_List local_import(const char *cur_path, Sass_Importer_Entry info, struct Sass_Compiler *comp);
 
@@ -14,9 +14,13 @@ local_import(const char *cur_path,
              struct Sass_Compiler *comp)
 {
   Sass_Import_List sl;
-  fprintf(stderr, "Importing:%s\n", cur_path); 
+  static int invocation = 0;
+  char name[8] = "staticX";
+  fprintf(stderr, "Importing(#%d): %s\n", invocation, cur_path); 
   sl = sass_make_import_list(1);
-  sl[0] = sass_make_import_entry("static", strdup("/* import */"), strdup(""));
+  name[6] = '0' + invocation;
+  sl[0] = sass_make_import_entry(name, strdup("/* import */"), strdup(""));
+  invocation++;
   return sl;
 }
 
