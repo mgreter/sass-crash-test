@@ -12,7 +12,7 @@ main()
   struct Sass_Options *o;
   int rc;
   strncpy(data, "/* First */", sizeof(data));
-  dc = sass_make_data_context(data);
+  dc = sass_make_data_context(strdup(data));
   c = sass_data_context_get_context(dc);
   o = sass_context_get_options(c);
   sass_option_set_output_path(o, "file.css");
